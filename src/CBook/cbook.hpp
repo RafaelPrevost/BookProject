@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 
-class Book{
+class CBook{
 private:
     std::string m_title;
     std::string m_author;
@@ -20,9 +20,9 @@ private:
     int         m_year;
     int         m_pages;
 public:
-    Book();
-    Book(const char* title, const char* author, const char* isbn, int year, int pages);
-    ~Book();
+    CBook();
+    CBook(const char* title, const char* author, const char* isbn, int year, int pages);
+    ~CBook();
 
     void Show() const;
     void ShowDetailled() const;
@@ -39,11 +39,11 @@ public:
     int GetYear() const;
     int GetPages() const;
 
-    bool CompareTitle(const Book& other) const;
-    bool CompareAuthor(const Book& other) const;
-    bool CompareISBN(const Book& other) const;
-    bool CompareYear(const Book& other) const;
-    bool ComparePages(const Book& other) const;
+    bool CompareTitle(const CBook& other) const;
+    bool CompareAuthor(const CBook& other) const;
+    bool CompareISBN(const CBook& other) const;
+    bool CompareYear(const CBook& other) const;
+    bool ComparePages(const CBook& other) const;
 };
 
 

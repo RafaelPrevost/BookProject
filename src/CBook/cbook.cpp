@@ -9,9 +9,9 @@
  * 
  */
 
-#include <book.hpp>
+#include <cbook.hpp>
 
-Book::Book():
+CBook::CBook():
     m_title{"Not defined"},
     m_author{"Not defined"},
     m_isbn{"Not defined"},
@@ -20,30 +20,30 @@ Book::Book():
 {}
 
 
-Book::Book(const char* title, const char* author, const char* isbn, int year, int pages):
+CBook::CBook(const char* title, const char* author, const char* isbn, int year, int pages):
     m_title{title},
     m_author{author},
     m_isbn{isbn},
     m_year{year},
     m_pages{pages}
 {
-    printf("Le livre %s a bien été crée\n",title);
+    printf("Le livre %s a bien ete cree\n",title);
 }
 
 
-Book::~Book(){
-    printf("Objet détruit\n");
+CBook::~CBook(){
+    printf("Objet detruit\n");
 }
 
 
-void Book::Show() const{
+void CBook::Show() const{
     std::cout << "Title: [" << m_title << "]" << std::endl
               << "Author: [" << m_author << "]" << std::endl
               << "Year: [" << m_year << "]" << std::endl <<  std::endl;
 }
 
 
-void Book::ShowDetailled() const{
+void CBook::ShowDetailled() const{
     std::cout << "Title: [" << m_title << "]" << std::endl
               << "Author: [" << m_author << "]" << std::endl
               << "ISBN: [" << m_isbn << "]" << std::endl
@@ -52,96 +52,96 @@ void Book::ShowDetailled() const{
 }
 
 
-void Book::UpdateInfo(const std::string& newTitle, const std::string& newAuthor, const std::string& newISBN, int newYear, int newPages){
+void CBook::UpdateInfo(const std::string& newTitle, const std::string& newAuthor, const std::string& newISBN, int newYear, int newPages){
     m_title=newTitle;
     m_author=newAuthor;
     m_isbn=newISBN;
     m_year=newYear;
     m_pages=newPages;
-    std::cout << "L'objet a bien été mis a jour\n\n";
+    std::cout << "L'objet a bien ete mis a jour\n\n";
 }
 
 
-void Book::SetTitle(const std::string& title){
+void CBook::SetTitle(const std::string& title){
     m_title=title;
-    std::cout << "Le titre a bien été mis a jour\n";
+    std::cout << "Le titre a bien ete mis a jour\n";
 }
 
 
-void Book::SetAuthor(const std::string& author){
+void CBook::SetAuthor(const std::string& author){
     m_author=author;
-    std::cout << "L'auteur a bien été mis a jour\n";
+    std::cout << "L'auteur a bien ete mis a jour\n";
 }
 
 
-void Book::SetISBN(const std::string& isbn){
+void CBook::SetISBN(const std::string& isbn){
     m_isbn=isbn;
-    std::cout << "L'ISBN a bien été mis a jour\n";
+    std::cout << "L'ISBN a bien ete mis a jour\n";
 }
 
 
-void Book::SetYear(int year){
+void CBook::SetYear(int year){
     m_year=year;
-    std::cout << "L'Année a bien été mis a jour\n";
+    std::cout << "L'Annee a bien ete mis a jour\n";
 }
 
 
-void Book::SetPages(int pages){
+void CBook::SetPages(int pages){
     m_pages=pages;
-    std::cout << "Le nombre de pages a bien été mis a jour\n";
+    std::cout << "Le nombre de pages a bien ete mis a jour\n";
 }
 
 
-std::string Book::GetTitle() const{
+std::string CBook::GetTitle() const{
     return m_title;
 }
 
 
-std::string Book::GetAuthor() const{
+std::string CBook::GetAuthor() const{
     return m_author;
 }
 
 
-std::string Book::GetISBN() const{
+std::string CBook::GetISBN() const{
     return m_isbn;
 }
 
 
-int Book::GetYear() const{
+int CBook::GetYear() const{
     return m_year;
 }
 
 
-int Book::GetPages() const{
+int CBook::GetPages() const{
     return m_pages;
 }
 
 
-bool Book::CompareTitle(const Book &other) const{
+bool CBook::CompareTitle(const CBook &other) const{
     if(m_title==other.m_title) return true;
     else return false;
 }
 
 
-bool Book::CompareAuthor(const Book& other) const{
+bool CBook::CompareAuthor(const CBook& other) const{
     if(m_author==other.m_author) return true;
     else return false;
 }
 
 
-bool Book::CompareISBN(const Book& other) const{
+bool CBook::CompareISBN(const CBook& other) const{
     if(m_isbn==other.m_isbn) return true;
     else return false;
 }
 
 
-bool Book::CompareYear(const Book& other) const{
+bool CBook::CompareYear(const CBook& other) const{
     if(m_year==other.m_year) return true;
     else return false;
 }
 
 
-bool Book::ComparePages(const Book& other) const{
+bool CBook::ComparePages(const CBook& other) const{
     if(m_pages==other.m_pages) return true;
     else return false;
 }
