@@ -32,7 +32,7 @@ CBook::CBook(const char* title, const char* author, const char* isbn, int year, 
 
 
 CBook::~CBook(){
-    printf("Objet detruit\n");
+    std::cout << "Livre " << m_title << " detruit" << std::endl;
 }
 
 
@@ -43,12 +43,12 @@ void CBook::Show() const{
 }
 
 
-void CBook::ShowDetailled() const{
+void CBook::Display() const{
     std::cout << "Title: [" << m_title << "]" << std::endl
               << "Author: [" << m_author << "]" << std::endl
               << "ISBN: [" << m_isbn << "]" << std::endl
               << "Year: [" << m_year << "]" << std::endl
-              << "Pages: [" << m_pages << "]" << std::endl << std::endl;
+              << "Pages: [" << m_pages << "]" << std::endl;
 }
 
 

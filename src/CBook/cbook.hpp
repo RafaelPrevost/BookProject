@@ -25,7 +25,7 @@ public:
     ~CBook();
 
     void Show() const;
-    void ShowDetailled() const;
+    void Display() const;
     void UpdateInfo(const std::string& newTitle, const std::string& newAuthor, const std::string& newISBN, int newYear, int newPages);
     void SetTitle(const std::string& title);
     void SetAuthor(const std::string& author);
