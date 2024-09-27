@@ -16,14 +16,25 @@
 
 class CLibrary{
 private:
-    CBook** m_book;
+    CBook** m_books;
     size_t  m_capacite;
     size_t  m_size;
-    
+
 public:
     CLibrary();
+    CLibrary(size_t capacity);
     ~CLibrary();
+
+    void DisplayBooks() const;
+    size_t GetBookCount() const; 
+    void addBook(CBook*book);
+    CBook* RemoveBook(const char* title, const char* author);
+
+protected:
+    void Resize();
+    void CompactBooks();
 };
+
 
 
 
