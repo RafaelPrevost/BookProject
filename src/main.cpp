@@ -1,25 +1,22 @@
 #include <iostream>
 #include <string>
-#include <cbook.hpp>
+#include <clibrary.hpp>
 
 int main(int argc, char** argv){
     std::cout << "======================== ENTER BOOK PROJECT ========================\n\n";
 
-    CBook OnePiece("OnePiece 60", "Eiichiro Oda", "758-9", 2012, 200);
-    CBook OnePiece2("OnePiece 58", "Eiichiro Oda", "758-7", 2011, 198);
+    CBook* OnePiece = new CBook("OnePiece 1", "Eiichiro Oda", "758-9", 2012, 200);
+    CBook* OnePiece2 = new CBook("OnePiece 2", "Eiichiro Oda", "758-7", 2011, 198);
+    CLibrary library_op;
 
-    OnePiece.ShowDetailled();
+    library_op.addBook(OnePiece);
+    library_op.addBook(OnePiece2);
 
-    OnePiece.UpdateInfo("OnePiece 59", "Eiichiro Oda", "758-8", 2011, 210);
+    library_op.DisplayBooks();
 
-    OnePiece.ShowDetailled();
+    OnePiece = library_op.RemoveBook("OnePiece 1", "Eiichiro Oda");
 
-    if(OnePiece.CompareTitle(OnePiece2)==false){
-        std::cout << "Les livres ne sont pas les memes !" << std::endl ;
-    }
-
-
-
+    library_op.DisplayBooks();
 
 
     std::cout << "\n======================== EXIT BOOK PROJECT =========================\n";
