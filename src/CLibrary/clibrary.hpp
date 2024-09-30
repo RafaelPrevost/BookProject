@@ -29,13 +29,9 @@ public:
     size_t GetBookCount() const; 
     void addBook(CBook*book);
     CBook* RemoveBook(const char* title, const char* author);
+    CBook* RemoveBook(size_t index);
 
 protected:
     void Resize();
     void CompactBooks();
 };
-
-
-
-
-

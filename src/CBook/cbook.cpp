@@ -48,7 +48,8 @@ void CBook::Display() const{
               << "Author: [" << m_author << "]" << std::endl
               << "ISBN: [" << m_isbn << "]" << std::endl
               << "Year: [" << m_year << "]" << std::endl
-              << "Pages: [" << m_pages << "]" << std::endl;
+              << "Pages: [" << m_pages << "]" << std::endl
+              << "///////////////////////////" << std::endl;
 }
 
 

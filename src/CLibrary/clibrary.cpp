@@ -28,7 +28,7 @@ CLibrary::CLibrary(size_t capacity):
 
 
 CLibrary::~CLibrary(){
-    std::cout << "m_size : " << m_size << " | m_capacite : " << m_capacite << std::endl;
+    // std::cout << "m_size : " << m_size << " | m_capacite : " << m_capacite << std::endl;
     for (size_t index=0; index<m_size; index++){
         if(!m_books[index]){
             std::cout << "Erreur, un des pointeurs vers un livre est NULL" << std::endl;
@@ -46,7 +46,6 @@ void CLibrary::DisplayBooks() const{
         std::cout << "Voici les livres contenus dans la bibliotheque :" << std::endl;
         for (size_t index=0; index<m_size; index++){
             m_books[index]->Display();
-            std::cout << "///////////////////////////" << std::endl;
         }
     }
 }
@@ -71,6 +70,7 @@ void CLibrary::addBook(CBook*book){
 
 
 CBook* CLibrary::RemoveBook(const char* title, const char* author){
+    std::cout << "Recherche d'un livre avec le titre " << title << " et l'auteur " << author << "....." << std::endl;
     CBook* bookToRemove=nullptr;
     for(size_t index=0 ;index<m_size ;index++){
         if(m_books[index]->GetTitle()==title && m_books[index]->GetAuthor()==author){
@@ -80,9 +80,23 @@ CBook* CLibrary::RemoveBook(const char* title, const char* author){
             break;
         }
     }
+    if (bookToRemove==nullptr) std::cout << "Aucun livre n'a été trouvé" << std::endl << std::endl;
+    else std::cout << "Le livre a bien été supprimé !" << std::endl << std::endl; 
     return bookToRemove;
 }
 
+CBook *CLibrary::RemoveBook(size_t index){
+    CBook* bookToRemove=nullptr;
+    if (index>m_size) std::cout << "Index invalide" << std::endl << std::endl;
+    else{
+        std::cout << "Recherche d'un livre avec l'index " << index << "....." << std::endl;
+        bookToRemove=m_books[index];
+        m_books[index]=nullptr;
+        CompactBooks();
+        std::cout << "Le livre a bien été supprimé !" << std::endl << std::endl; 
+    }
+    return bookToRemove;
+}
 
 void CLibrary::Resize(){
     CBook** bookInter = new CBook*[m_capacite+1];
@@ -97,13 +111,13 @@ void CLibrary::Resize(){
 
 void CLibrary::CompactBooks(){
     int decalage=0;
-    for(size_t index; index<m_capacite; index++){
-        if(m_books[index]==nullptr){
-            decalage++;
-        }
+    for(size_t index=0; index<m_size; index++){
         if(decalage>0){
             m_books[index-decalage]=m_books[index];
         }   
+        if(m_books[index]==nullptr){
+            decalage++;
+        }
     }
     m_size-=decalage;
 

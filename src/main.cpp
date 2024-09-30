@@ -1,23 +1,22 @@
 #include <iostream>
 #include <string>
-#include <clibrary.hpp>
+#include <CScenario.hpp>
 
 int main(int argc, char** argv){
     std::cout << "======================== ENTER BOOK PROJECT ========================\n\n";
 
-    CBook* OnePiece = new CBook("OnePiece 1", "Eiichiro Oda", "758-9", 2012, 200);
-    CBook* OnePiece2 = new CBook("OnePiece 2", "Eiichiro Oda", "758-7", 2011, 198);
-    CLibrary library_op;
+    // Decommenter le scénario a activer
 
-    library_op.addBook(OnePiece);
-    library_op.addBook(OnePiece2);
+    // scenario1();
+    // scenario2(3);
+    // scenario3(3);
+    // scenario4(3);
+    // scenario5(3,5);
 
-    library_op.DisplayBooks();
-
-    OnePiece = library_op.RemoveBook("OnePiece 1", "Eiichiro Oda");
-
-    library_op.DisplayBooks();
-
+    // scenario6();
+    // scenario7();
+    // scenario8();
+    // scenario9();
 
     std::cout << "\n======================== EXIT BOOK PROJECT =========================\n";
 }
